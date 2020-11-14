@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript Tips Calculator">
+	<meta name="keywords" content="Calculator,Tips,JavaScript">
+	<meta name="author" content="Fritz Templin">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tip Calculator</title>
+	<link rel="stylesheet" href="tipstylesheet.css">
+
+</head>
+<body>
+	<header>
+		<h1 class="title">Tip Calculator</h1>
+	</header>
+	<main>
+		<aside>
+			<div class="left-img">
+				<div class="dollar"><img src="images\dollar-sign-icon.jpg" width="300" height="300">
+				</div>
+			</div>
+			<div class="results">
+				<h3 class="tip-total"></h3>
+				<h3 class="total-bill"></h3>
+			</div>
+		</aside>
+
+		<form>
+			<h2 class="bill-amount">Enter Your Bill Amount</h2>
+			<input type="number" class="billAmount"> <span class="currency">($)</span>
+			<h2 class="tip-percent">Enter Tip %</h2>
+			<input type="number" class="tipPercent"> <span class="percent">(%)</span>
+			<h2 class="split-by">Enter # of people  </h2>
+			<input type="number" class="splitBy"> <span class="split">(#)</span><br><br>
+			<button class="calc" onClick="calculateTip()">Calculate</button>
+		</form>
+	</main>
+
+ <!--<script src="tipsCalc.js"></script> -->
+ <script type="text/javascript">
+ 	function calculateTip (){
+	var	varBillAmount = document.querySelector(".billAmount");
+	var	varTip = document.querySelector(".tipPercent");
+	var	varSplitBy = document.querySelector(".splitBy");
+	console.log(varBillAmount);
+	console.log(varTip);
+	console.log(varSplitBy);
+
+}
+ </script>
+
+</body>
+</html>
