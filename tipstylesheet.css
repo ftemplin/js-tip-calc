@@ -21,6 +21,7 @@ footer, header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
     color: #BF964B;
     background-color: #009900;
     }

@@ -20,34 +20,37 @@
 				<div class="dollar"><img src="images\dollar-sign-icon.jpg" width="300" height="300">
 				</div>
 			</div>
-			<div class="results">
-				<h3 class="tip-total"></h3>
-				<h3 class="total-bill"></h3>
-			</div>
+			
 		</aside>
 
-		<form>
-			<h2 class="bill-amount">Enter Your Bill Amount</h2>
-			<input type="number" class="billAmount"> <span class="currency">($)</span>
-			<h2 class="tip-percent">Enter Tip %</h2>
-			<input type="number" class="tipPercent"> <span class="percent">(%)</span>
+		<div class="wrapper" id="inputArea">
+			<h2 class="label" name="billAmount-label" id="billAmount-label">Enter Your Bill Amount</h2>
+			<input type="number" class="inputField" name="billAmount-input" id="billAmount-input"> <span class="label">($)</span>
+			<h2 class="label" name="tipPercent-label" id="tipPercent-label">Enter Tip %</h2>
+			<input type="number" class="inputField" name="tipPercent-input" id="tipPercent-input"> <span class="label">(%)</span>
 			<h2 class="split-by">Enter # of people  </h2>
-			<input type="number" class="splitBy"> <span class="split">(#)</span><br><br>
-			<button class="calc" onClick="calculateTip()">Calculate</button>
-		</form>
+			<input type="number" class="inputField" name="splitBy-input" id="splitBy-input"> <span class="label">(#)</span><br><br>
+			<button class="btn btn-primary" onclick="calculateTip()">Calculate</button>
+		</div>
+		<div class="wrapper" id="resultsArea">
+			<h3 id="resultsOutput"></h3>
+		</div>
 	</main>
 
  <!--<script src="tipsCalc.js"></script> -->
  <script type="text/javascript">
- 	function calculateTip (){
-	var	varBillAmount = document.querySelector(".billAmount");
-	var	varTip = document.querySelector(".tipPercent");
-	var	varSplitBy = document.querySelector(".splitBy");
-	console.log(varBillAmount);
-	console.log(varTip);
-	console.log(varSplitBy);
-
-}
+ 	function calculateTip () {
+ 		let varBillAmount = Number(document.querySelector("#billAmount-input").value);
+ 		//console.log(varBillAmount)
+ 		let varTipPercent = Number(document.querySelector("#tipPercent-input").value);
+ 		//console.log(varTipPercent)
+ 		let varSplitBy = Number(document.querySelector("#splitBy-input").value);
+ 		//console.log(varSplitBy)
+ 		let varTipSplit = ((varBillAmount * (varTipPercent/100))/ varSplitBy);
+ 		//console.log(varTipSplit)
+ 		let USD = new Intl.NumberFormat("en-us",{style:"currency",currency:"USD"});
+ 		document.querySelector("#resultsOutput").innerHTML = "Each Person should pay " + USD.format(varTipSplit);
+ 		}
  </script>
 
 </body>
